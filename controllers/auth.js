@@ -28,11 +28,14 @@ module.exports = (router) => {
 
       await user.save()
 
+      const token = await jwt.sign({ _id: user._id, role: 'user' }, process.env.JWT_SECRET)
+
       res.status(201).json({
         success: true,
         message: 'User resgistered',
         payload: {
-          user
+          user,
+          token
         }
       })
     } catch (err) {
