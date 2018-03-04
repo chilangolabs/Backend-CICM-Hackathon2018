@@ -57,6 +57,15 @@ errors.create({
 })
 
 errors.create({
+  name: 'TELEGRAM_ERROR',
+  defaultMessage: 'An error has ocurred, please try again later',
+  defaultExplanation: 'Error at Telegram',
+  parent: exports.SERVER_ERROR,
+  status: 500,
+  scope: exports
+})
+
+errors.create({
   name: 'MONGO_ERROR',
   defaultMessage: 'An error has ocurred, please try again later',
   defaultExplanation: 'An error ocurred at DB',
