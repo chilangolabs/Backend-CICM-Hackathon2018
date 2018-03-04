@@ -7,7 +7,10 @@ const reportStatuses = require.main.require('./constants/reportStatuses')
 var Report = function () {
   const schema = new mongoose.Schema({
     location: [Number],
-    folio: String,
+    folio: {
+      type: String,
+      default: () => (0x11111111 + Math.floor(0xeeeeeeee * Math.random())).toString(16)
+    },
     status: {
       type: String,
       enum: reportStatuses,
