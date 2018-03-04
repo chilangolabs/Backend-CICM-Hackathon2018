@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken')
+
 const errors = require.main.require('./constants/errors')
 const Report = require.main.require('./models/Report')
 
@@ -5,7 +7,15 @@ module.exports = (router) => {
   router.route('/')
     .get(async (req, res, next) => {
       try {
-        const reports = await Report.find().exec()
+        const token = req.headers['authorization'] || null
+        let query = {}
+
+        if (token) {
+          const decoded = await jwt.decode(token, process.env.JWT_SECRET)
+          query._user = decoded._id
+        }
+
+        const reports = await Report.find(query).exec()
 
         res.status(201).json({
           success: true,
