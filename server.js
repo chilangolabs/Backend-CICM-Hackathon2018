@@ -36,6 +36,7 @@ function mount (route, path) {
 mount('/auth', './controllers/auth')
 mount('/reports', './controllers/reports')
 mount('/testing', './controllers/test')
+mount('/telegram', './controllers/ultron')
 
 app.use(require('./middleware/serverError'))
 
