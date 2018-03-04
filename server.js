@@ -6,10 +6,12 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const express = require('express')
 const morgan = require('morgan')
+const firebase = require.main.require('./middleware/firebase')
 const mongodb = require.main.require('./middleware/mongodb')
 let app = express()
 
 mongodb(process.env.MONGO_URL)
+firebase()
 
 app.use(morgan('dev'))
 app.use(bodyParser.json())
