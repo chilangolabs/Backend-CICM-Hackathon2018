@@ -12,6 +12,7 @@ module.exports = (router) => {
       const password = req.body.password
       const phone = req.body.phone || null
       const zipCode = req.body.zipCode
+      const deviceToken = req.body.deviceToken || null
 
       if (!firstName || !lastName || !email || !password || !zipCode) {
         return next(new errors.CLIENT_BAD_REQUEST())
@@ -23,7 +24,8 @@ module.exports = (router) => {
         email,
         password,
         phone,
-        zipCode
+        zipCode,
+        deviceToken
       })
 
       await user.save()

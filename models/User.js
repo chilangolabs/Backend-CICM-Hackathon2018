@@ -7,7 +7,8 @@ var User = function () {
     phone: String,
     email: String,
     password: String,
-    zipCode: String
+    zipCode: String,
+    deviceToken: String
   }, {
     timestamps: true
   })
