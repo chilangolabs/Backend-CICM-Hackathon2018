@@ -16,9 +16,9 @@ module.exports = router => {
       if (req.body.message.entities && Array.isArray(req.body.message.entities)) {
         if (req.body.message.entities.find(entity => entity.type === 'bot_command').length > 0) {
           if (req.body.message.text.includes('start')) {
-            // TODO
+            text = 'Bienvenidx a Kalpoli'
           } else if (req.body.message.text.includes('new_report')) {
-            text = 'Por favor, enviame la ubicación de tu reporte'
+            text = 'Por favor, envíame la ubicación de tu reporte'
           } else {
             text = 'Holi Kalpoli'
           }
@@ -27,7 +27,7 @@ module.exports = router => {
 
       if (req.body.message.location) {
         location = req.body.message.location
-        text = '¿Podrías describir tu problematica?'
+        text = '¿Podrías describir tu problemática?'
       } else {
         if (req.body.message.text.toLocaleLowerCase().trim() === 'hay un edificio dañado') {
           const deviceToken = 'ctLUNgm-zSk:APA91bHjNHpFJSB0kb1i7XDHP0TmE9RJK3xyEwyvo-Ig9ccj1i4cRFlVz86rn6H3l7wDLcLrsVI47BLt-KPXenBQJvarcaY23tLtvBDP0TqGCROu3jxY2qHA425jlDgKzfMLhFuf9LAI'
@@ -46,7 +46,7 @@ module.exports = router => {
           await report.save()
           await firebase.messaging().sendToDevice(deviceToken, payload)
 
-          text = `Tu reporte ha sido levanta, tu número de folio es ${report.folio}`
+          text = `Tu reporte ha sido levantado, tu número de folio es ${report.folio}`
         }
       }
 
