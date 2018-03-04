@@ -33,7 +33,11 @@ var Report = function () {
     },
     updatedAt: Date,
     expectedAt: Date,
-    media: String
+    media: String,
+    _user: {
+      type: mongoose.SchemaTypes.ObjectId,
+      ref: 'User'
+    }
   })
 
   schema.index({ location: '2dsphere' })
