@@ -1,0 +1,35 @@
+{
+  "name": "calpoli-api",
+  "version": "1.0.0",
+  "author": "Rodrigo Moreno <rodrigo@chilangolabs.com>",
+  "main": "server.js",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/ChilangoLabs/hack-cicm-2018.git",
+    "type": "git"
+  },
+  "scripts": {
+    "lint": "standard",
+    "test": "npm run lint",
+    "start": "NODE_ENV=production node index",
+    "start:dev": "nodemon index"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "errors": "^0.3.0",
+    "express": "^4.16.2",
+    "firebase-admin": "^5.9.1",
+    "jsonwebtoken": "^8.1.0",
+    "mongoose": "^4.13.9",
+    "morgan": "^1.9.0",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "longjohn": "^0.2.12",
+    "nodemon": "^1.14.11",
+    "standard": "^10.0.3"
+  }
+}
